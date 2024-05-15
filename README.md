@@ -4,8 +4,8 @@
 
 # Seja bem vindo(a) ao meu primeiro projeto em Java 
 
-## Este projeto consiste em executar funções de um sistema bancário, só que simplificado
-## Neste projeto eu usei apenas Java puro, sem bibliotecas, utilizando apenas um arquivo CSV para salvar os dados das operações executadas
+### Este projeto consiste em executar funções de um sistema bancário, só que simplificado
+### Neste projeto eu usei apenas Java puro, sem bibliotecas, utilizando apenas um arquivo CSV para salvar os dados das operações executadas
 
 
 ### Este projeto contem 7 operações, sendo elas:
