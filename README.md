@@ -50,8 +50,12 @@
 
 ### Ideias colocadas em prática:
 
-<p><b>Leitura de dados do teclado</b></p>
+<p><b>&#x2022;Leitura de dados do teclado</b></p>
 
-<p><b>Persistencia de dados</b></p>
+<p><b>&#x2022;Persistencia de dados</b></p>
 
-<p><b>Inputs</b></p>
+<p><b>&#x2022;Inputs</b></p>
+
+<div align="center" height="40%">
+  <img height="200" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png">
+</div>
