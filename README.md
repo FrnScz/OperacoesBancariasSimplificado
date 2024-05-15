@@ -1,4 +1,6 @@
-<div style= "display: center">![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/a2a4d2c9-b898-48ac-bab0-fa7a002b1035)</div>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/java.svg"/>
+</div>
 
 ### Seja bem vindo(a) ao meu primeiro projeto em Java 
 
