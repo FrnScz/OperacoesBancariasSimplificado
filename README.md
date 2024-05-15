@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center, height: 200px">
   <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/java.svg"/>
 </div>
 
