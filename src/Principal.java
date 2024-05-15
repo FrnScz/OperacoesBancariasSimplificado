@@ -58,7 +58,7 @@ public class Principal {
 
         var numero = JOptionPane.showInputDialog("Digite o numero da conta");
         var agencia = JOptionPane.showInputDialog("Digite o numero da agência");
-        var senha = JOptionPane.showInputDialog("Digite a senha da conta");
+        var senha = JOptionPane.showInputDialog("Digite a senha da conta"); // adicionado senha a todas as contas
 
         var saldoEmConta = new Random().nextInt(10000);
         JOptionPane.showMessageDialog(null, "Saldo em conta: " + saldoEmConta);
@@ -118,7 +118,7 @@ public class Principal {
         for (int i = 0; i < listaDeContas.size(); i++) {
             var linha = listaDeContas.get(i).split(",");
             if (linha[0].equals(numeroConta) && linha[3].equals(senhaConta)) {
-                int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover esta conta " + numeroConta + "?");
+                int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover esta conta " + numeroConta + "?"); // Adicionado aviso para remover a conta
                 if(confirmacao == JOptionPane.YES_NO_OPTION) {
                     listaDeContas.remove(i);
                     Files.write(arquivo, listaDeContas);
