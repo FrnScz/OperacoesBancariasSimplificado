@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.List;
 import java.util.Random;
 
 public class Principal {
@@ -59,12 +58,13 @@ public class Principal {
 
         var numero = JOptionPane.showInputDialog("Digite o numero da conta");
         var agencia = JOptionPane.showInputDialog("Digite o numero da agência");
+        var senha = JOptionPane.showInputDialog("Digite a senha da conta");
 
         var saldoEmConta = new Random().nextInt(10000);
         JOptionPane.showMessageDialog(null, "Saldo em conta: " + saldoEmConta);
 
-        var contas = new Conta(numero, agencia, saldoEmConta);
-        Files.writeString(arquivo, contas.getNumeroConta() + "," + contas.getNumeroAgencia() + "," + contas.getSaldoEmConta() + "\n", StandardOpenOption.APPEND);
+        var contas = new Conta(numero, agencia, saldoEmConta, senha);
+        Files.writeString(arquivo, contas.getNumeroConta() + "," + contas.getNumeroAgencia() + "," + contas.getSaldoEmConta() + "," + contas.getSenha() + "\n", StandardOpenOption.APPEND);
     }
 
     // MÉTODO QUE IMPRIME TODAS AS INFORMAÇÕES DENTRO DO ARQUIVO CONTAS.CSV NO CONSOLE
@@ -84,16 +84,17 @@ public class Principal {
         JOptionPane.showMessageDialog(null, "Você escolheu a opção: Realizar Saque");
 
         var numeroConta = JOptionPane.showInputDialog("Digite o número da conta");
+        var senhaConta = JOptionPane.showInputDialog("Digite a senha da conta");
         var valorSaque = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser sacado"));
 
         var listaDeContas = Files.readAllLines(arquivo);
         for (int i = 0; i < listaDeContas.size(); i++) {
             var linha = listaDeContas.get(i).split(",");
-            if (linha[0].equals(numeroConta)) {
+            if (linha[0].equals(numeroConta) && linha[3].equals(senhaConta)) {
                 var saldoConta = Integer.parseInt(linha[2]);
                 if (saldoConta >= valorSaque) {
                     saldoConta -= valorSaque;
-                    listaDeContas.set(i, linha[0] + "," + linha[1] + "," + saldoConta);
+                    listaDeContas.set(i, linha[0] + "," + linha[1] + "," + saldoConta + "," +linha[3]);
                     Files.write(arquivo, listaDeContas);
                     JOptionPane.showMessageDialog(null, "Saque realizado com sucesso. Novo saldo: R$ " + saldoConta);
                     return;
@@ -111,14 +112,21 @@ public class Principal {
         JOptionPane.showMessageDialog(null, "Você escolheu a opção: Remover conta");
 
         var numeroConta = JOptionPane.showInputDialog("Digite o numero da conta que deseja remover");
+        var senhaConta = JOptionPane.showInputDialog("Digite a senha da conta");
 
         var listaDeContas = Files.readAllLines(arquivo);
         for (int i = 0; i < listaDeContas.size(); i++) {
             var linha = listaDeContas.get(i).split(",");
-            if (linha[0].equals(numeroConta)) {
-                listaDeContas.remove(i);
-                Files.write(arquivo, listaDeContas);
-                JOptionPane.showMessageDialog(null, "Conta removida com sucesso!");
+            if (linha[0].equals(numeroConta) && linha[3].equals(senhaConta)) {
+                int confirmacao = JOptionPane.showConfirmDialog(null, "Tem certeza de que deseja remover esta conta " + numeroConta + "?");
+                if(confirmacao == JOptionPane.YES_NO_OPTION) {
+                    listaDeContas.remove(i);
+                    Files.write(arquivo, listaDeContas);
+                    JOptionPane.showMessageDialog(null, "Conta removida com sucesso!");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Remoção de conta cancelada..");
+                }
                 return;
             }
         }
@@ -130,15 +138,16 @@ public class Principal {
         JOptionPane.showMessageDialog(null, "Você escolheu a opção: Adicionar Saldo em Conta");
 
         var numeroConta = JOptionPane.showInputDialog("Digite o número da conta que deseja adicionar saldo");
+        var senhaConta = JOptionPane.showInputDialog("Digite a senha da conta");
         var valorDeposito = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor que deseja depositar"));
 
         var listaDeContas = Files.readAllLines(arquivo);
         for (int i = 0; i < listaDeContas.size(); i++) {
             var linha = listaDeContas.get(i).split(",");
-            if (linha[0].equals(numeroConta)) {
+            if (linha[0].equals(numeroConta) && linha[3].equals(senhaConta)) {
                 var saldoConta = Integer.parseInt(linha[2]);
                 saldoConta += valorDeposito;
-                listaDeContas.set(i, linha[0] + "," + linha[1] + "," + saldoConta);
+                listaDeContas.set(i, linha[0] + "," + linha[1] + "," + saldoConta + "," + linha[3]);
                 Files.write(arquivo, listaDeContas);
                 JOptionPane.showMessageDialog(null, "Depósito realizado com sucesso! Novo saldo: R$ " + saldoConta);
                 return;
@@ -152,6 +161,7 @@ public class Principal {
         JOptionPane.showMessageDialog(null, "Você escolheu a opção: Transferir Saldo");
 
         var numeroContaOrigem = JOptionPane.showInputDialog("Digite o número da conta de origem");
+        var senhaContaOrigem = JOptionPane.showInputDialog("Digite a senha da conta de origem");
         var numeroContaDestino = JOptionPane.showInputDialog("Digite o número da conta de destino");
         var valorTransferencia = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor a ser transferido"));
 
@@ -162,7 +172,7 @@ public class Principal {
         // Encontrar as contas de origem e destino
         for (int i = 0; i < listaDeContas.size(); i++) {
             var linha = listaDeContas.get(i).split(",");
-            if (linha[0].equals(numeroContaOrigem)) {
+            if (linha[0].equals(numeroContaOrigem) && linha[3].equals(senhaContaOrigem)) {
                 indiceOrigem = i;
                 saldoOrigem = Integer.parseInt(linha[2]);
             }
@@ -178,8 +188,8 @@ public class Principal {
                 saldoOrigem -= valorTransferencia;
                 saldoDestino += valorTransferencia;
 
-                listaDeContas.set(indiceOrigem, numeroContaOrigem + "," + listaDeContas.get(indiceOrigem).split(",")[1] + "," + saldoOrigem);
-                listaDeContas.set(indiceDestino, numeroContaDestino + "," + listaDeContas.get(indiceDestino).split(",")[1] + "," + saldoDestino);
+                listaDeContas.set(indiceOrigem, numeroContaOrigem + "," + listaDeContas.get(indiceOrigem).split(",")[1] + "," + saldoOrigem + "," + listaDeContas.get(indiceOrigem).split(",")[3]);
+                listaDeContas.set(indiceDestino, numeroContaDestino + "," + listaDeContas.get(indiceDestino).split(",")[1] + "," + saldoDestino + "," + listaDeContas.get(indiceDestino).split(",")[3]);
                 Files.write(arquivo, listaDeContas);
 
                 JOptionPane.showMessageDialog(null, "Transferência realizada com sucesso!");
