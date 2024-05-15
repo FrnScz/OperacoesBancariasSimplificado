@@ -1,4 +1,4 @@
-![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/a2a4d2c9-b898-48ac-bab0-fa7a002b1035)
+<div style= "display: center">![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/a2a4d2c9-b898-48ac-bab0-fa7a002b1035)</div>
 
 ### Seja bem vindo(a) ao meu primeiro projeto em Java 
 
