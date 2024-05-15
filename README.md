@@ -1,4 +1,6 @@
-### Seja bem vindo(a) ao meu primeiro projeto em Java ![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/a2a4d2c9-b898-48ac-bab0-fa7a002b1035)
+![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/a2a4d2c9-b898-48ac-bab0-fa7a002b1035)
+
+### Seja bem vindo(a) ao meu primeiro projeto em Java 
 
 
 ### Este projeto consiste em executar funções de um sistema bancário, só que simplificado
