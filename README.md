@@ -1,4 +1,4 @@
-<div align="center" height="40%">
+<div align="center">
   <img height="200" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png">
 </div>
 
@@ -54,6 +54,6 @@
 
 <p><b>&#x2022;Inputs</b></p>
 
-<div align="center" height="40%">
+<div align="center">
   <img height="200" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png">
 </div>
