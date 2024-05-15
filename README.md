@@ -15,17 +15,17 @@
 <p align= "center" >
  <img width="auto" height="auto" src="./prints/Gif opção 1.gif" >
 </p>
-
+# 
 <p><b>Opção 2: Adicionar Saldo</b></p>
 <p align= "center" >
  <img width="auto" height="auto" src="./prints/Gif opção 2.gif" >
 </p>
-
+# 
 <p><b>Opção 3: Sacar</b></p>
 <p align= "center" >
  <img width="auto" height="auto" src="./prints/Gif opção 3.gif" >
 </p>
-
+# 
 <p><b>Opção 4: Listar contas</b></p>
 <p align= "center" >
  <img width="auto" height="auto" src="./prints/Gif opção 4.gif" >
