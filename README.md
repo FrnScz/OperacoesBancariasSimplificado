@@ -2,13 +2,13 @@
   <img height="200" src="https://user-images.githubusercontent.com/25181517/117201156-9a724800-adec-11eb-9a9d-3cd0f67da4bc.png">
 </div>
 
-### Seja bem vindo(a) ao meu primeiro projeto em Java 
+# Seja bem vindo(a) ao meu primeiro projeto em Java 
 
 
-### Este projeto consiste em executar funções de um sistema bancário, só que simplificado
-### Neste projeto eu usei apenas Java puro, sem bibliotecas, utilizando apenas um arquivo CSV para salvar os dados das operações executadas
+## Este projeto consiste em executar funções de um sistema bancário, só que simplificado
+## Neste projeto eu usei apenas Java puro, sem bibliotecas, utilizando apenas um arquivo CSV para salvar os dados das operações executadas
 
-<h3>Este projeto contem 7 operações, sendo elas:</h3>
+### Este projeto contem 7 operações, sendo elas:
 
 
 <p><b>Opção 1: Cadastrar contas</b></p>
