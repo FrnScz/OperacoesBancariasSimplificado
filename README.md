@@ -1,4 +1,4 @@
-### Seja bem vindo(a) ao meu primeiro projeto em Java ![image](https://github.com/FrnScz/OperacoesBancariasSimplificado/assets/139561501/5862c37e-db89-466b-8059-7333becc5159)
+### Seja bem vindo(a) ao meu primeiro projeto em Java https://raw.githubusercontent.com/jmnote/z-icons/master/svg/java.svg
 
 ### Este projeto consiste em executar funções de um sistema bancário, só que simplificado
 ### Neste projeto eu usei apenas Java puro, sem bibliotecas, utilizando apenas um arquivo CSV para salvar os dados das operações executadas
